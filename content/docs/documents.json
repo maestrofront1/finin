@@ -1,0 +1,40 @@
+{
+  "tabs": [
+    "Все документы",
+    "Раскрытие информации", 
+    "Архив",
+    "Документы площадки"
+  ],
+  "documents": [
+    {
+      "title": "Правила и Декларация о рисках",
+      "href": "/docs/pravila-i-deklaraciya-o-riskah.pdf",
+      "filename": "pravila-i-deklaraciya-o-riskah.pdf"
+    },
+    {
+      "title": "Положение о порядке осуществления скоринга лиц, привлекающих инвестиции на инвестиционной платформе ФИНИН",
+      "href": "/docs/polozhenie-o-skoringe.pdf",
+      "filename": "polozhenie-o-skoringe.pdf"
+    },
+    {
+      "title": "Положение о порядке присвоения рейтинга 2025 г",
+      "href": "/docs/polozhenie-o-rejtinge-2025.pdf",
+      "filename": "polozhenie-o-rejtinge-2025.pdf"
+    },
+    {
+      "title": "Выписка из Реестра участников проекта создания и обеспечения функционирования инновационного центра «Сколково»",
+      "href": "/docs/vypiska-skolkovo.pdf",
+      "filename": "vypiska-skolkovo.pdf"
+    },
+    {
+      "title": "Положение о проверке ЛПИ и потенциальных ЛПИ",
+      "href": "/docs/polozhenie-o-proverke-lpi.pdf",
+      "filename": "polozhenie-o-proverke-lpi.pdf"
+    },
+    {
+      "title": "Пример документа",
+      "href": "/docs/example-document.pdf",
+      "filename": "example-document.pdf"
+    }
+  ]
+}

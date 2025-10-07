@@ -1,0 +1,49 @@
+@import url("public/fonts/Gilroy/gilroy.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+html, body {
+  height: 100%;
+}
+
+body {
+  @apply text-gray-900 bg-white antialiased;
+}
+
+a {
+  @apply text-brand-600 hover:text-brand-700 underline-offset-4 hover:underline;
+}
+
+.prose :where(img):not(:where([class~="not-prose"])) {
+  @apply rounded-lg;
+}
+
+/* Global keyframes used by HeroSection floating cards */
+@keyframes float {
+  0%, 100% { transform: translateX(-50%) translateY(0px); }
+  50% { transform: translateX(-50%) translateY(-10px); }
+}
+.header-link {
+  @apply text-[20px] text-black-500 hover:underline hover:text-brand-700 transition-colors;
+}
+.con-container {
+  @apply mx-auto w-full px-[20px];
+  max-width: 1564px;
+}
+
+/* Hide dividends block in calculator tooltip */
+.finin-tooltip .grid > div:nth-child(3) {
+  display: none;
+}
+body{
+  overflow-x: hidden;
+}
+html{
+  line-height: 1;
+}
+.btn--spotlight{ background:radial-gradient(180px 120px at var(--mx,50%) var(--my,50%), rgba(255,255,255,.22), transparent 60%), linear-gradient(135deg,var(--g1),var(--g2)); transition:transform .45s, box-shadow .45s; }
+.btn--spotlight:hover{ background:radial-gradient(180px 120px at var(--mx,50%) var(--my,50%), rgba(255,255,255,.22), transparent 60%), linear-gradient(135deg,var(--g1),var(--g2));  }
