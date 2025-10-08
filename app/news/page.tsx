@@ -17,7 +17,7 @@ export default async function NewsIndexPage() {
     return (
         <Container>
             <div className="flex flex-col gap-10 mb-[100px] mt-[120px] con-container">
-                <h2>Новости</h2>
+                <h2 className="font-semibold text-[55px] text-[#3B3B3B] text-center mb-10 mt-4">Официальные новости<br/> и анонсы кампании</h2>
 
                 <div className="grid grid-cols-3 gap-5">
                     {posts.map((item, i) => {
@@ -30,7 +30,7 @@ export default async function NewsIndexPage() {
                                     <p className="text-gray-700 flex-1">{item.excerpt}</p>
                                     <div className="mt-auto">
                                         <Link href={`/news/${item.slug}`}>
-                                            <Button variant="gray">читать больше</Button>
+                                            <Button variant="green">читать больше</Button>
                                         </Link>
                                     </div>
                                 </div>
