@@ -159,7 +159,7 @@ export function HeroSection() {
 
 
                                 <div className="flex justify-center gap-4 max-md:flex-col max-md:pt-[20px] max-md:w-full">
-                                    <Button variant="gosuslugi" className="max-md:w-full " withArrow={false}>Калькулятор инвестора</Button>
+                                    <Button variant="gosuslugi" className="max-md:w-full " withArrow={false}>Войти через Госуслугни</Button>
                                     <Button variant="green" className="max-md:w-full" withArrow={false}>Личный кабинет</Button>
                                 </div>
                             </div>
