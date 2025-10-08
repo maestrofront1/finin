@@ -61,7 +61,7 @@ const Input: React.FC<InputProps> = ({
     return (
         <div className="w-full">
           {labelText && (
-              <label className="block mb-2 text-sm text-gray-300 uppercase tracking-wide">
+              <label className="block mb-2 text-sm text-gray-300 lowercase tracking-wide">
                 {labelText}
               </label>
           )}

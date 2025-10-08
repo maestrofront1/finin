@@ -7,7 +7,7 @@ import CalculatorSection from '@/features/home/components/CalculatorSection'
 import AboutDigitalSection from '@/features/home/components/AboutDigitalSection'
 import MarqueeBlocks from '@shared/sections/MarqueeBlocks'
 import { PartnersSection } from '@shared/sections/PartnersSection'
-import { HistorySection } from '@/features/home/components/HistorySection'
+// import { HistorySection } from '@/features/home/components/HistorySection'
 import { EngagementSections } from '@/features/home/components/EngagementSections'
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -26,8 +26,8 @@ export default function HomePage() {
       <CalculatorSection />
       <MarqueeBlocks />
       <PartnersSection />
-      <HistorySection />
-      <AboutDigitalSection title="О нас в цифрах" />
+      {/*<HistorySection />*/}
+      <AboutDigitalSection title="Стабильный рост компании на протяжении 7 лет" />
       <EngagementSections />
     </>
   )

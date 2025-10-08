@@ -5,11 +5,12 @@ import { Card } from '@shared/ui/Card'
 import { Button } from '@shared/ui/Button'
 import { H2, Muted } from '@shared/ui/Typography'
 import { Input } from '@shared/ui/Input'
+import {opt} from "ts-interface-checker";
 
 // --- Data, Types, and Helper functions remain unchanged ---
 type InvestmentType = { key: string; label: string; rate: number; color: string; strokeColor: string; }
 type ChartPoint = { x: number; y: number; }
-const INVESTMENT_TYPES: InvestmentType[] = [ { key: 'fintech', label: 'Финин', rate: 43, color: '#10B981', strokeColor: '#059669' }, { key: 'stocks', label: 'Акции', rate: 38, color: '#3B82F6', strokeColor: '#2563EB' }, { key: 'bonds', label: 'Облигации', rate: 32, color: '#8B5CF6', strokeColor: '#7C3AED' }, { key: 'deposits', label: 'Депозит', rate: 28, color: '#F59E0B', strokeColor: '#D97706' }, { key: 'savings', label: 'Вклады', rate: 24, color: '#EF4444', strokeColor: '#DC2626' }, { key: 'metals', label: 'Металлы', rate: 20, color: '#6B7280', strokeColor: '#4B5563' }, ]
+const INVESTMENT_TYPES: InvestmentType[] = [ { key: 'fintech', label: 'Финин', rate: 43, color: '#10B981', strokeColor: '#059669' }, { key: 'stocks', label: 'Акции', rate: 38, color: '#F20D38', strokeColor: '#2563EB' }, { key: 'deposits', label: 'Депозит', rate: 28, color: '#F59E0B', strokeColor: '#D97706' }, { key: 'savings', label: 'Недвижимость', rate: 24, color: '#01C3EA', strokeColor: '#DC2626' }]
 function formatCurrency(v: number) { return v.toLocaleString('ru-RU', { style: 'currency', currency: 'RUB', maximumFractionDigits: 0 }) }
 function calculateSeries(initial: number, months: number, monthly: number, annualPercent: number) { const arr: number[] = []; const r = annualPercent / 100 / 12; let balance = initial; for (let m = 1; m <= months; m++) { balance += balance * r; balance += monthly; arr.push(Number(balance.toFixed(2))); } return arr; }
 function createLinePath(points: ChartPoint[]) { if (points.length === 0) return ""; return points.slice(1).reduce((path, point) => `${path} L ${point.x} ${point.y}`, `M ${points[0].x} ${points[0].y}`); }
@@ -21,9 +22,9 @@ export function CalculatorSection() {
     const [months, setMonths] = useState<number>(12);
     const [monthly, setMonthly] = useState<number>(1000);
     const [selectedTypes, setSelectedTypes] = useState<Set<string>>(new Set(['fintech', 'stocks', 'bonds']));
-    const RISK_OPTIONS = [{ key: 'safe', label: 'Без риска', rate: 28 }, { key: 'base', label: 'Базовая', rate: 34 }, { key: 'aggressive', label: 'Агрессивная', rate: 43 }] as const;
+    const RISK_OPTIONS = [{ key: 'safe', label: 'Пассивная', rate: 25 }, { key: 'base', label: 'Активная', rate: 36 }] as const;
     type RiskKey = typeof RISK_OPTIONS[number]['key'];
-    const [risk, setRisk] = useState<RiskKey>('aggressive');
+    const [risk, setRisk] = useState<RiskKey>('safe');
     const riskRate = useMemo(() => RISK_OPTIONS.find(r => r.key === risk)!.rate, [risk]);
     const allSeries = useMemo(() => { return INVESTMENT_TYPES.map(type => { const rate = type.key === 'fintech' ? riskRate : type.rate; return { ...type, rate: rate, series: calculateSeries(initial, months, monthly, rate) }; }); }, [initial, months, monthly, riskRate]);
     const fininSeries = allSeries.find(s => s.key === 'fintech');
@@ -102,7 +103,7 @@ export function CalculatorSection() {
                         <Input type="range-number" label="срок инвестирования (месяцев)" min={1} max={60} step={1} value={months} onChange={(e) => setMonths(Number(e.target.value || 0))} />
                         <Input type="range-number" label="сумма ежемесячного пополнения" min={0} max={100000} step={1000} value={monthly} onChange={(e) => setMonthly(Number(e.target.value || 0))} />
                         <div className="mt-4">
-                            <label className="block mb-2 text-sm text-gray-500 uppercase tracking-wide">Профиль риска</label>
+                            <label className="block mb-2 text-sm text-gray-500 lowercase tracking-wide">стратегия *</label>
                             <div className="flex flex-col space-y-2">
                                 {RISK_OPTIONS.map((opt) => (
                                     <button key={opt.key} type="button" onClick={() => setRisk(opt.key)} className={`h-[48px] text-left w-full px-4 py-3 rounded-xl transition border ${risk === opt.key ? "border-green-500 bg-white font-semibold text-gray-900" : "border-transparent bg-gray-100 text-gray-700 hover:bg-gray-50"}`}>
@@ -113,21 +114,25 @@ export function CalculatorSection() {
                         </div>
                         <div className="mt-6 space-y-2 max-lg:hidden">
                             <Button variant="green" className="w-full">инвестировать</Button>
-                            <Muted className="pt-[48px]">* Годовая доходность рассчитана на основе текущих ставок по стратегиям, исходя из срока займа в 1 год, без учета дефолтов. Реальная доходность зависит от сроков заключенных договоров займа и исполнения заемщиками обязательств по договорам займа.</Muted>
+                            <Muted className="pt-[48px]">*Предварительный расчёт. Не является публичной офертой. Не является обещанием и/или гарантией доходности. Финансовые инструменты и инвестиционная деятельность связаны с высокими рисками.</Muted>
                         </div>
                     </div>
                 </div>
 
                 <div className="col-span-8 relative">
                     {/* Desktop Stat Cards - Unchanged */}
-                    <div className="grid grid-cols-2 gap-4 mb-6 max-md:hidden">
+                    <div className="grid grid-cols-3 gap-4 mb-6 max-md:hidden">
                         <Card className="px-[24px] py-[20px] border-none bg-gray-100">
-                            <div className="block mb-2 text-sm text-gray-500 uppercase tracking-wide">Итоговая сумма (Финин)</div>
+                            <div className="block mb-2 text-sm text-gray-500 uppercase tracking-wide">Итоговая сумма</div>
                             <div className="text-gray-800 text-[32px] font-semibold leading-9">{formatCurrency(fininFinal).replace('RUB', '₽')}</div>
                         </Card>
                         <Card className="px-[24px] py-[20px] border-none bg-gray-100">
-                            <div className="block mb-2 text-sm text-gray-500 uppercase tracking-wide">Прирост (к взносам)</div>
+                            <div className="block mb-2 text-sm text-gray-500 uppercase tracking-wide">Ожидаемый доход</div>
                             <div className="text-gray-800 text-[32px] font-semibold leading-9">{formatCurrency(fininGain).replace('RUB', '₽')}</div>
+                        </Card>
+                        <Card className="px-[24px] py-[20px] border-none bg-green-500">
+                            <div className="block mb-2 text-sm text-gк-500 uppercase tracking-wide">ФИНИН</div>
+                            <div className="text-gray-800 text-[32px] font-semibold leading-9">36% годовых</div>
                         </Card>
                     </div>
 
@@ -172,15 +177,15 @@ export function CalculatorSection() {
 
                         {hoverIndex !== null && hoverIndex < months && (
                             <div ref={tooltipRef} onMouseEnter={() => setIsTooltipHover(true)} onMouseLeave={() => { setIsTooltipHover(false); setHoverIndex(null); }} className="absolute bg-white rounded-2xl shadow-lg p-4 w-full max-w-[300px] sm:max-w-[500px] text-xs sm:text-base" style={{ top: tooltipPos.top, left: tooltipPos.left }}>
-                                <div className="text-gray-500 mb-2">{hoverIndex + 1} месяц</div><div className="grid grid-cols-1 sm:grid-cols-2 gap-2">{allSeries.filter((entry) => selectedTypes.has(entry.key)).map((entry) => (<div key={entry.key} className="flex items-center justify-between bg-gray-50 px-3 py-2 rounded-lg"><div className="flex items-center space-x-2"><span className="inline-block w-2 h-2 rounded-full" style={{ backgroundColor: entry.color }}></span><span className="text-sm text-gray-800">{entry.label}</span></div><div className="text-right"><div className="text-xs text-gray-500">{entry.rate}% годовых</div><div className="text-sm font-medium text-gray-900">{formatCurrency(entry.series[hoverIndex]).replace('RUB', '₽')}</div></div></div>))}</div>
+                                <div className="text-gray-500 mb-2">{hoverIndex + 1} месяц</div><div className="grid grid-cols-4 sm:grid-cols-2 gap-2">{allSeries.filter((entry) => selectedTypes.has(entry.key)).map((entry) => (<div key={entry.key} className="flex flex-col items-center   bg-gray-50 px-3 py-2 rounded-lg"><div className="flex items-center space-x-2"><span className=" w-2 h-2 rounded-full" style={{ backgroundColor: entry.color }}></span><span className="text-sm text-gray-800">{entry.label}</span></div><div className="text-right"><div className="text-sm font-medium text-gray-900">{formatCurrency(entry.series[hoverIndex]).replace('RUB', '₽')}</div></div></div>))}</div>
                             </div>
                         )}
                     </div>
 
-                    <div className="mt-6 flex flex-wrap gap-4 justify-center">
+                    <div className="mt-6 flex flex-wrap gap-4">
                         {INVESTMENT_TYPES.map((type) => (
                             <button key={type.key} onClick={() => toggleType(type.key)} className={`flex items-center gap-2 px-3 py-2 rounded-lg border transition-all duration-200 ${selectedTypes.has(type.key) ? "bg-white shadow-md border-gray-300" : "bg-gray-50 border-gray-200 opacity-60 hover:opacity-80"}`}>
-                                <div className="w-3 h-3 rounded-full" style={{ backgroundColor: type.color }} /><span className="text-sm font-medium">{type.key === 'fintech' ? 'Финин' : type.label}</span><span className="text-xs text-gray-500">{type.key === 'fintech' ? riskRate : type.rate}%</span>
+                                <div className="w-3 h-3 rounded-full" style={{ backgroundColor: type.color }} /><span className="text-sm font-medium">{type.key === 'fintech' ? 'Финин' : type.label}</span><span className="text-xs text-gray-500"></span>
                             </button>
                         ))}
                     </div>
@@ -198,8 +203,8 @@ export function CalculatorSection() {
                 </Card>
             </div>
             <div className="mt-5 hidden max-lg:flex max-lg:flex-col">
-                <Button variant="green" className="w-full">инвестировать</Button>
-                <Muted className="pt-5 ">* Годовая доходность рассчитана на основе текущих ставок по стратегиям, исходя из срока займа в 1 год, без учета дефолтов. Реальная доходность зависит от сроков заключенных договоров займа и исполнения заемщиками обязательств по договорам займа.</Muted>
+                <Button  variant="green" className="w-full">инвестировать</Button>
+                <Muted className="pt-5 ">* Предварительный расчёт. Не является публичной офертой. Не является обещанием и/или гарантией доходности. Финансовые инструменты и инвестиционная деятельность связаны с высокими рисками.</Muted>
             </div>
         </section>
     )

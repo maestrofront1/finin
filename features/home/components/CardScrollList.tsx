@@ -110,7 +110,7 @@ function AccordionCard({ card, isOpen, onToggle }: any) {
                   <p className="text-black font-light text-base mb-6">
                     {card.description}
                   </p>
-                  <Button variant="gray" withArrow={true} className="w-full">
+                  <Button variant="green" withArrow={true} className="w-full">
                     Подробнее
                   </Button>
                 </div>
@@ -168,7 +168,7 @@ function CardContent({ card }: any) {
                 {card.description}
               </p>
               <div className="flex md:justify-end">
-                <Button variant="gray" withArrow={true}>
+                <Button variant="green" withArrow={true}>
                   Подробнее
                 </Button>
               </div>

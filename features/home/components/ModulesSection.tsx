@@ -23,34 +23,34 @@ export function ModulesSection() {
             вложить, привлечь или стать акционером.
           </p>
         </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-4 max-md:grid-cols-1 gap-6">
         <MainCard
-          variant="horizontal"
+          variant="vertical"
           title="Займы"
           description="Оформите займ с прозрачными условиями на развитие Вашего бизнеса"
-          subtitle="от 21% годовых"
+          subtitle=""
           pic={<img src="/img/modules/pic.png" alt="Займы" />}
           href="/loans"
         />
         <MainCard
-          variant="horizontal"
+          variant="vertical"
           title="Инвестиции"
           description="Надежное инвестирование в акции, бизнес или недвижимость с доходностью"
-          subtitle="от 15% годовых"
+          subtitle=""
           pic={<img src="/img/modules/pic-1.png" alt="Инвестиции" />}
           href="/invest"
         />
         <MainCard
-          variant="horizontal"
-          title="Акционирование"
+          variant="vertical"
+          title="Эмитенты"
           description="Привлекайте инвестиции с помощью выпуска акций вашей компании"
 
-          pic={<img src="/img/modules/pic-2.png" alt="Акционирование" />}
+          pic={<img  src="/img/modules/pic-2.png" alt="Эмитенты" />}
           href="/shares"
         />
         <MainCard
-          variant="horizontal"
-          title="Инвестирование в Финин"
+          variant="vertical"
+          title="Акции Финин"
           description="Станьте совладельцем финтех-компании с ростом акций и выплатами дивидентов"
       
           pic={<img src="/img/modules/pic-3.png" alt="Инвестирование в Финин" />}

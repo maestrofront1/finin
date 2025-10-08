@@ -50,7 +50,7 @@ export function PartnersSection() {
       <Container>
         <h2 className="text-4xl font-semibold text-center mb-10 text-gray-800">Наши партнеры</h2>
       
-        <div className="partners-grid grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 items-center">
+        <div className="partners-grid grid grid-cols-2  sm:grid-cols-3 lg:grid-cols-4 gap-8 items-center">
           {partners.map((p, i) => (
             <div
               key={i}

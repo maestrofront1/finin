@@ -30,17 +30,19 @@ export function MainCard({
     <div
       className={cn(
         "bg-gray-100 rounded-[20px] overflow-hidden flex relative min-h-[300px] line-height-[1]",
-        variant === "horizontal" && "flex max-md:flex-col-reverse flex-row items-center gap-6 px-[40px] py-6 line-height-[1] max-md:px-6 max-md:pt-[10px] max-md:pb-6",
+        variant === "horizontal" && "flex max-md:grid-cols-1 items-center" +
+          " gap-6 px-[40px] py-6 line-height-[1] max-md:px-6 max-md:pt-[10px] max-md:pb-6",
         variant === "vertical" && "flex-col-reverse p-6 line-height-[1]",
         variant === "small" && "flex-col p-4 text-sm line-height-[1]",
         className
       )}
     >
-      <div className={cn("flex-1 w-[33%] max-md:w-full", variant === "horizontal" ? "" : " w-full")}>
-        <h3 className="text-[28px] text-gray-400 font-bold mb-[20px] line-height-[1] whitespace-nowrap">{title}</h3>
-        {description && <p className="text-gray-300 text-[18px] mb-[20px] line-height-[1] ">{description}</p>}
-        {subtitle && <p className="text-gray-400 text-[36px] font-regular mb-[28px] line-height-[1] ">{subtitle}</p>}
-        {buttonText && <Button withArrow={true} variant="green" href={href} >{buttonText}</Button>}
+      <div className={cn("flex-1 flex flex-col items-center w-[33%]" +
+          " max-md:w-full", variant === "horizontal" ? "" : " w-full")}>
+        <h3 className="text-[28px] text-gray-400 font-bold mb-[20px] line-height-[1] whitespace-nowrap text-center">{title}</h3>
+        {description && <p className="text-gray-300 text-[18px] mb-[20px] line-height-[1] text-center ">{description}</p>}
+        {subtitle && <p className="text-gray-400 text-[36px] font-regular mb-[28px] line-height-[1] text-center ">{subtitle}</p>}
+        {buttonText && <Button withArrow={false} variant="green" href={href} >{buttonText}</Button>}
       </div>
 
       {pic && (
