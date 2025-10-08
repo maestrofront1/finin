@@ -7,10 +7,10 @@ import { H2 } from "@shared/ui/Typography";
 
 // Data and main component structure remain the same
 const cards = [
-  { id: 1, tag: "ВЫСОКОДОХОДНЫЕ ИНВЕСТИЦИИ", title: "Госконтракты", prefix: "до", percent: "36%", suffix: "годовых", description: "Защищённые инструменты с гарантированной доходностью до 25% годовых", image: "/img/list/Pic-3.png", },
-  { id: 2, tag: "ПОЛУЧАЙТЕ ДИВИДЕНДЫ", title: "Акции", prefix: "от", percent: "18%", suffix: "годовых", description: "Покупка акций – это возможность приумножить капитал, получая прибыль от роста стоимости компании и дивидендов", image: "/img/list/Pic-2.png", },
-  { id: 3, tag: "ЕЖЕМЕСЯЧНЫЕ ПЛАТЕЖИ", title: "Бизнес", prefix: "ставка от", percent: "25%", suffix: "годовых", description: "Быстрое и удобное финансирование для роста вашего бизнеса", image: "/img/list/Pic.png", },
-  { id: 4, tag: "СКОРО", title: "Недвижимость", prefix: "", percent: "", suffix: "", description: "Новое направление, которое поможет увеличить ваш доход", image: "/img/list/Pic-1.png", },
+  { id: 1, tag: "ВЫСОКОДОХОДНЫЕ ИНВЕСТИЦИИ", title: "Госконтракты", prefix: "до", percent: "36%", suffix: "годовых", description: "Защищённые инструменты с гарантированной доходностью до 25% годовых", image: "/img/list/Pic.png", },
+  { id: 2, tag: "ПОЛУЧАЙТЕ ДИВИДЕНДЫ", title: "Акции", prefix: "от", percent: "18%", suffix: "годовых", description: "Покупка акций – это возможность приумножить капитал, получая прибыль от роста стоимости компании и дивидендов", image: "/img/list/Pic-1.png", },
+  { id: 3, tag: "ЕЖЕМЕСЯЧНЫЕ ПЛАТЕЖИ", title: "Бизнес", prefix: "ставка от", percent: "25%", suffix: "годовых", description: "Быстрое и удобное финансирование для роста вашего бизнеса", image: "/img/list/Pic-2.png", },
+  { id: 4, tag: "СКОРО", title: "Недвижимость", prefix: "", percent: "", suffix: "", description: "Новое направление, которое поможет увеличить ваш доход", image: "/img/list/Pic-3.png", },
 ];
 
 export default function CardScrollList() {

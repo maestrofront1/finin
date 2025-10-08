@@ -7,8 +7,21 @@ export default function Footer() {
         <footer className="mt-12">
             <Container className="">
                 <div className="flex flex-col">
-                    <div className="flex flex-col justify-between px-[140px] pt-[50px] rounded-[40px] bg-[#1F242A]  max-xl:px-10 max-lg:hidden ">
-                        <div className="flex ">
+                    <div
+                        className="flex flex-col justify-between h-[526px] px-[140px] pt-[50px] rounded-[40px] bg-[#1F242A] max-xl:px-10 max-lg:hidden relative overflow-hidden"
+                        style={{
+                            // fallback bg color
+                            backgroundColor: "#1F242A",
+                        }}
+                    >
+                        <Image
+                            src="/img/footer.svg"
+                            alt=""
+                            fill
+                            className="object-cover object-center absolute inset-0 w-full h-full z-0 pointer-events-none select-none"
+                            priority
+                        />
+                        <div className="relative z-10 flex ">
                             <div className="flex justify-between gap-10 ">
                                 <div className="flex flex-col gap-4">
                                     <h1 className="text-white text-[22px]">Финин — экосистема инвестиций<br/>
@@ -89,18 +102,7 @@ export default function Footer() {
                                 </div>
                             </div>
                         </div>
-                        <div className="relative w-full h-[100%] mt-[80px] overflow-hidden">
-                            {/* Градиентный фон */}
-                            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_#94DEC7,_#4EAA8D,_#003323)]  z-0" />
-
-                            {/* Блюр поверх градиента */}
-                            <div className="absolute inset-0 blur-[300px] z-0" />
-
-                            {/* Логотип поверх фона */}
-                            <div className="relative z-10 flex items-center justify-center  ">
-                                <Image src={Logo} alt="logo"  className="object-contain" />
-                            </div>
-                        </div>
+                       
 
 
                     </div>

@@ -7,6 +7,7 @@ import CalculatorSection from '@/features/home/components/CalculatorSection'
 import AboutDigitalSection from '@/features/home/components/AboutDigitalSection'
 import MarqueeBlocks from '@shared/sections/MarqueeBlocks'
 import { PartnersSection } from '@shared/sections/PartnersSection'
+import CompanyGrowthBlock from '@/features/home/components/CompanyGrowthBlock'
 // import { HistorySection } from '@/features/home/components/HistorySection'
 import { EngagementSections } from '@/features/home/components/EngagementSections'
 
@@ -27,7 +28,7 @@ export default function HomePage() {
       <MarqueeBlocks />
       <PartnersSection />
       {/*<HistorySection />*/}
-      <AboutDigitalSection title="Стабильный рост компании на протяжении 7 лет" />
+      <CompanyGrowthBlock  />
       <EngagementSections />
     </>
   )

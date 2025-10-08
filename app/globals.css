@@ -32,7 +32,7 @@ a {
 }
 .con-container {
   @apply mx-auto w-full px-[20px];
-  max-width: 1564px;
+  max-width: calc(100% - 240px);
 }
 
 /* Hide dividends block in calculator tooltip */

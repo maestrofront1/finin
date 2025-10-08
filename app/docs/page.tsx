@@ -1,10 +1,9 @@
 'use client'
-import {Container} from '@shared/ui/Container'
-import { TfiDownload } from "react-icons/tfi";
+import { Container } from '@shared/ui/Container'
 import Button from "@shared/ui/Button";
 import Image from "next/image";
 import MockImg from "../../public/img/mock/card-1.png"
-import {cn} from "@shared/lib/utils";
+import { cn } from "@shared/lib/utils";
 import {useState, useEffect} from "react";
 import {DocumentFile} from "@shared/lib/documents";
 
@@ -190,7 +189,21 @@ export default function DocsPage() {
                                         className="rounded-[10px] px-6 py-3 bg-[#00A772] hover:bg-green-400 active:bg-green-500 text-white w-full sm:max-w-[140px] flex items-center justify-center gap-2"
                                     >
                                         скачать
-                                        <TfiDownload />
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="20"
+                                            height="20"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                        >
+                                            <path
+                                                d="M12 3v12m0 0l-4-4m4 4l4-4M4 17h16"
+                                                stroke="currentColor"
+                                                strokeWidth="2"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                            />
+                                        </svg>
                                     </button>
                                 </div>
                             </div>
