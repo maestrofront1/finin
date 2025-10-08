@@ -12,8 +12,19 @@ type InvestmentType = { key: string; label: string; rate: number; color: string;
 type ChartPoint = { x: number; y: number; }
 const INVESTMENT_TYPES: InvestmentType[] = [ { key: 'fintech', label: 'Финин', rate: 43, color: '#10B981', strokeColor: '#059669' }, { key: 'stocks', label: 'Акции', rate: 38, color: '#F20D38', strokeColor: '#2563EB' }, { key: 'deposits', label: 'Депозит', rate: 28, color: '#F59E0B', strokeColor: '#D97706' }, { key: 'savings', label: 'Недвижимость', rate: 24, color: '#01C3EA', strokeColor: '#DC2626' }]
 function formatCurrency(v: number) { return v.toLocaleString('ru-RU', { style: 'currency', currency: 'RUB', maximumFractionDigits: 0 }) }
-function calculateSeries(initial: number, months: number, monthly: number, annualPercent: number) { const arr: number[] = []; const r = annualPercent / 100 / 12; let balance = initial; for (let m = 1; m <= months; m++) { balance += balance * r; balance += monthly; arr.push(Number(balance.toFixed(2))); } return arr; }
-function createLinePath(points: ChartPoint[]) { if (points.length === 0) return ""; return points.slice(1).reduce((path, point) => `${path} L ${point.x} ${point.y}`, `M ${points[0].x} ${points[0].y}`); }
+function calculateSeries(initial: number, months: number, monthly: number, annualPercent: number) {
+    const arr: number[] = [];
+    const r = Math.pow(1 + annualPercent / 100, 1 / 12) - 1; // эффективная месячная ставка
+    let balance = initial;
+  
+    for (let m = 1; m <= months; m++) {
+      balance += monthly;         // пополнение в начале месяца
+      balance += balance * r;     // проценты на всю сумму
+      arr.push(Number(balance.toFixed(2)));
+    }
+    return arr;
+  }
+  function createLinePath(points: ChartPoint[]) { if (points.length === 0) return ""; return points.slice(1).reduce((path, point) => `${path} L ${point.x} ${point.y}`, `M ${points[0].x} ${points[0].y}`); }
 function formatAxisLabel(value: number): string { if (value >= 1_000_000) { return `${(value / 1_000_000).toFixed(1)}M`; } if (value >= 1_000) { return `${Math.round(value / 1_000)}k`; } return value.toString(); }
 
 export function CalculatorSection() {
@@ -37,7 +48,7 @@ export function CalculatorSection() {
     const chartContainerRef = useRef<HTMLDivElement>(null);
     const [chartWidth, setChartWidth] = useState(1000);
     const [chartHeight, setChartHeight] = useState(400);
-    const [chartPadding, setChartPadding] = useState(60);
+    const [chartPadding, setChartPadding] = useState(12);
     const [isMobile, setIsMobile] = useState(false);
 
     const svgWidth = Math.max(chartWidth, chartPadding * 2 + 1);
@@ -99,9 +110,9 @@ export function CalculatorSection() {
                 <div className="col-span-2 max-lg:w-full">
                     {/* UI Controls - Unchanged */}
                     <div className="space-y-6 max-lg:w-full">
-                        <Input type="range-number" label="первоначальная сумма вложений" min={0} max={100000} step={1000} value={initial} onChange={(e) => setInitial(Number(e.target.value || 0))} />
-                        <Input type="range-number" label="срок инвестирования (месяцев)" min={1} max={60} step={1} value={months} onChange={(e) => setMonths(Number(e.target.value || 0))} />
-                        <Input type="range-number" label="сумма ежемесячного пополнения" min={0} max={100000} step={1000} value={monthly} onChange={(e) => setMonthly(Number(e.target.value || 0))} />
+                        <Input type="range-number" label="первоначальная сумма вложений" min={1000} max={50000000} step={100000} value={initial} onChange={(e) => setInitial(Number(e.target.value || 0))} />
+                        <Input type="range-number" label="срок инвестирования (месяцев)" min={1} max={12} step={1} value={months} onChange={(e) => setMonths(Number(e.target.value || 0))} />
+                        <Input type="range-number" label="сумма ежемесячного пополнения" min={0} max={1000000} step={1000} value={monthly} onChange={(e) => setMonthly(Number(e.target.value || 0))} />
                         <div className="mt-4">
                             <label className="block mb-2 text-sm text-gray-500 lowercase tracking-wide">стратегия *</label>
                             <div className="flex flex-col space-y-2">
@@ -131,8 +142,8 @@ export function CalculatorSection() {
                             <div className="text-gray-800 text-[32px] font-semibold leading-9">{formatCurrency(fininGain).replace('RUB', '₽')}</div>
                         </Card>
                         <Card className="px-[24px] py-[20px] border-none bg-green-500">
-                            <div className="block mb-2 text-sm text-gк-500 uppercase tracking-wide">ФИНИН</div>
-                            <div className="text-gray-800 text-[32px] font-semibold leading-9">36% годовых</div>
+                            <div className="text-white block mb-2 text-sm text-gк-500 uppercase tracking-wide">ФИНИН</div>
+                            <div className="text-white text-[32px] font-semibold leading-9">36% годовых</div>
                         </Card>
                     </div>
 

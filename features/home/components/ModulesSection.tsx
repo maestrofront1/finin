@@ -27,9 +27,9 @@ export function ModulesSection() {
         <MainCard
           variant="vertical"
           title="Займы"
-          description="Оформите займ с прозрачными условиями на развитие Вашего бизнеса"
+          description="Привлекайте инвестиции с помощью выпуска акций вашей компании"
           subtitle=""
-          pic={<img src="/img/modules/pic.png" alt="Займы" />}
+          pic={<img src="/img/modules/1.png" alt="Займы" />}
           href="/loans"
         />
         <MainCard
@@ -37,7 +37,7 @@ export function ModulesSection() {
           title="Инвестиции"
           description="Надежное инвестирование в акции, бизнес или недвижимость с доходностью"
           subtitle=""
-          pic={<img src="/img/modules/pic-1.png" alt="Инвестиции" />}
+          pic={<img src="/img/modules/2.png" alt="Инвестиции" />}
           href="/invest"
         />
         <MainCard
@@ -45,7 +45,7 @@ export function ModulesSection() {
           title="Эмитенты"
           description="Привлекайте инвестиции с помощью выпуска акций вашей компании"
 
-          pic={<img  src="/img/modules/pic-2.png" alt="Эмитенты" />}
+          pic={<img  src="/img/modules/3.png" alt="Эмитенты" />}
           href="/shares"
         />
         <MainCard
@@ -53,7 +53,7 @@ export function ModulesSection() {
           title="Акции Финин"
           description="Станьте совладельцем финтех-компании с ростом акций и выплатами дивидентов"
       
-          pic={<img src="/img/modules/pic-3.png" alt="Инвестирование в Финин" />}
+          pic={<img src="/img/modules/4.png" alt="Инвестирование в Финин" />}
           href="/shares"
         />
 
