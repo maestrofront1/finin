@@ -1,3 +1,4 @@
+import {StrategySection} from "@shared/sections/StrategySection";
 import type {Metadata} from "next";
 import {Container} from "@shared/ui/Container";
 import {buildMetadata} from "@shared/seo/seo";
@@ -135,37 +136,38 @@ export default function InvestInFininPage() {
             </section>
 
 
-            <AboutSection></AboutSection>
-            <AboutDigitalSection className="!py-[unset] !pt-5 !pb-[120px]"/>
+            {/*<AboutSection></AboutSection>*/}
+            <StrategySection/>
+            <AboutDigitalSection className="!py-[unset] !pt-5 !pb-[120px]" title={"Стабильный рост компании на протяжении 7 лет"} />
 
-            <section className="my-[120px] max-w-[1564px] mx-auto">
-                <h2 className="text-4xl font-semibold text-center mb-10 text-gray-800">Теперь про акцию</h2>
-                <div className="flex flex-col mt-10">
-                    <div className="flex flex-row gap-5 max-md:flex-col">
-                        <div className="p-6 flex-[60%] rounded-[20px] bg-gray-100 flex flex-col gap-5">
-                            <p className="text-[28px] max-md:text-[28px] text-gray-400 font-bold">Цена одной акции</p>
-                            <p className="text-[100px] max-md:text-[68px] text-gray-300">3 500 ₽ </p>
-                        </div>
-                        <div className="p-6 flex-[40%] rounded-[20px] bg-gray-100 flex flex-col gap-5">
-                            <p className="text-[28px] max-md:text-[28px] text-gray-400 font-bold">Акции с 2023 выросли</p>
-                            <p className="text-[100px] max-md:text-[68px] text-green-500">на 200%</p>
-                        </div>
-                    </div>
-                    <div className="relative p-6 mt-5 overflow-hidden flex-[40%] rounded-[20px] bg-gray-100 gap-5 max-md:flex max-md:flex-col-reverse">
-                        <div className="flex flex-col">
+            {/*<section className="my-[120px] max-w-[1564px] mx-auto">*/}
+            {/*    <h2 className="text-4xl font-semibold text-center mb-10 text-gray-800">Теперь про акцию</h2>*/}
+            {/*    <div className="flex flex-col mt-10">*/}
+            {/*        <div className="flex flex-row gap-5 max-md:flex-col">*/}
+            {/*            <div className="p-6 flex-[60%] rounded-[20px] bg-gray-100 flex flex-col gap-5">*/}
+            {/*                <p className="text-[28px] max-md:text-[28px] text-gray-400 font-bold">Цена одной акции</p>*/}
+            {/*                <p className="text-[100px] max-md:text-[68px] text-gray-300">3 500 ₽ </p>*/}
+            {/*            </div>*/}
+            {/*            <div className="p-6 flex-[40%] rounded-[20px] bg-gray-100 flex flex-col gap-5">*/}
+            {/*                <p className="text-[28px] max-md:text-[28px] text-gray-400 font-bold">Акции с 2023 выросли</p>*/}
+            {/*                <p className="text-[100px] max-md:text-[68px] text-green-500">на 200%</p>*/}
+            {/*            </div>*/}
+            {/*        </div>*/}
+            {/*        <div className="relative p-6 mt-5 overflow-hidden flex-[40%] rounded-[20px] bg-gray-100 gap-5 max-md:flex max-md:flex-col-reverse">*/}
+            {/*            <div className="flex flex-col">*/}
 
-                            <p className="text-[28px] max-md:text-[28px] text-gray-400 mb-5 font-bold">Решайте сами</p>
-                            <ul className="list-disc flex flex-col gap-5 ml-6">
-                                <li className="text-[18px] text-gray-300">Продать к декабрю дороже на нашей платформе</li>
-                                <li className="text-[18px] text-gray-300">Держать, чтобы заработать ещё больше и получать дивиденды</li>
-                            </ul>
-                            <Button className="mt-[28px]" variant="green" withArrow>начать инвестировать</Button>
-                        </div>
-                        <Image src={Img1} className="absolute h-full object-contain right-[10%] bottom-0 max-md:relative max-md:right-[unset] [mask-image:linear-gradient(to_top,transparent,black_20%)] max-md:relative max-md:self-center"
-                               alt="Ivest"></Image>
-                    </div>
-                </div>
-            </section>
+            {/*                <p className="text-[28px] max-md:text-[28px] text-gray-400 mb-5 font-bold">Решайте сами</p>*/}
+            {/*                <ul className="list-disc flex flex-col gap-5 ml-6">*/}
+            {/*                    <li className="text-[18px] text-gray-300">Продать к декабрю дороже на нашей платформе</li>*/}
+            {/*                    <li className="text-[18px] text-gray-300">Держать, чтобы заработать ещё больше и получать дивиденды</li>*/}
+            {/*                </ul>*/}
+            {/*                <Button className="mt-[28px]" variant="green" withArrow>начать инвестировать</Button>*/}
+            {/*            </div>*/}
+            {/*            <Image src={Img1} className="absolute h-full object-contain right-[10%] bottom-0 max-md:relative max-md:right-[unset] [mask-image:linear-gradient(to_top,transparent,black_20%)] max-md:relative max-md:self-center"*/}
+            {/*                   alt="Ivest"></Image>*/}
+            {/*        </div>*/}
+            {/*    </div>*/}
+            {/*</section>*/}
             <InvestCalculatorSection></InvestCalculatorSection>
 
 

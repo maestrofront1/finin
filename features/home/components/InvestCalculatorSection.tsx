@@ -1,10 +1,13 @@
 ﻿"use client"
 
+import Image from "next/image";
 import React, {useEffect, useMemo, useRef, useState} from 'react'
 import {Card} from '@shared/ui/Card'
 import {Button} from '@shared/ui/Button'
 import {Muted} from '@shared/ui/Typography'
 import {Input} from '@shared/ui/Input' // Re-added the import for your custom component
+import Dates from "public/img/invest-in-finin/dates.png"
+import Pic1 from "public/img/modules/pic-4.png"
 
 // --- Helper functions ---
 function createLinePath(points: { x: number; y: number }[]) {
@@ -169,121 +172,136 @@ export function InvestCalculatorSection() {
 
     return (
         <section className="con-container py-12">
-            <div className="grid grid-cols-10 max-lg:grid-cols-1 gap-12 items-start max-lg:flex max-lg:flex-col-reverse">
-                <div className="lg:col-span-3 space-y-8">
-                    <div className="space-y-1">
-                        <div className="text-gray-300 text-sm">цена акции сегодня</div>
-                        <div className="text-[36px] font-medium text-gray-400">3 500 ₽</div>
-                    </div>
-                    <div className="space-y-1">
-                        <div className="text-gray-300 text-sm">всего акций в продаже</div>
-                        <div className="text-[36px] font-medium text-gray-400">2 000 000</div>
-                    </div>
-                    <div className="space-y-1">
-                        <div className="text-gray-300 text-sm">текущая капитализация</div>
-                        <div className="text-[36px] font-medium text-gray-400">200 000 000 ₽</div>
-                    </div>
-                    <div className="space-y-1">
-                        <div className="text-gray-300 text-sm">рост за последний год</div>
-                        <div className="text-[36px] font-medium text-gray-400">+160%</div>
-                    </div>
-                    <div className="space-y-1">
-                        <div className="text-gray-300 text-sm">прогноз дивидендов</div>
-                        <div className="text-[36px] font-medium text-gray-400">~15.0% годовых</div>
-                    </div>
-                    <Button variant="green" className="w-full !h-14 !text-lg">купить акции</Button>
-                    <Muted className="!pt-4">* Годовая доходность рассчитана на основе текущих ставок по стратегиям,
-                        исходя из срока займа в 1 год, без учета дефолтов. Реальная доходность зависит от сроков
-                        заключенных договоров займа и исполнения заемщиками обязательств по договорам займа.</Muted>
-                </div>
+            <div className="flex items-start gap-5 ">
+                <div>
+                    <div className="flex flex-col gap-5 max-lg:flex-col max-lg:items-center mb-[80px]">
 
-                <div className="lg:col-span-7">
-                    <div className="">
-                        <div className="mb-6">
-                            <Input
-                                type="range-number"
-                                label="сумма инвестиций"
-                                min={1000}
-                                max={MAX_INVESTMENT_AMOUNT}
-                                step={100}
-                                value={investmentAmount}
-                                onChange={(e) => setInvestmentAmount(Number(e.target.value || 0))}
-                            />
+                        <div className="flex flex-col gap-8 mb-[20px]">
+                            <h1 className="text-gray-900 font-semibold text-[48px]">Инвестируйте в акции Финин</h1>
+                            <span className="text-gray-500 font-bold text-[28px]">Рост стоимости акций</span>
+                        </div>
+                        <div className="flex flex-col gap-5">
+                            <Image  src={Dates} alt={"dates"}/>
+                            <p className="leading-10 text-[28px] text-gray-500">Акции Финин продемонстрировали стабильный рост с 2023 года, увеличившись более чем в три раза.<br/>
+                                Это подтверждает эффективность бизнес-модели и доверие инвесторов.</p>
+                        </div>
+                    </div>
+                    <div className="flex flex-col gap-5 items-start max-lg:flex max-lg:flex-col-reverse">
+
+                        <div>
+                            <h1 className="text-[48px] text-gray-900 font-semibold">Узнайте сумму предполагаемых<br/> дивидендов и рост стоимости акции</h1>
                         </div>
 
-                        <div ref={chartContainerRef} className="relative w-full">
-                            <svg width="100%" height={chartHeight} viewBox={`0 0 ${chartWidth} ${chartHeight}`}
-                                 className="block overflow-visible">
-                                {Array.from({length: 6}).map((_, i) => {
-                                    const y = PADDING.top + i * (chartHeight - PADDING.top - PADDING.bottom) / 5;
-                                    const gainValue = yMax - i * (yRange / 5);
-                                    const labelValue = gainValue + investmentAmount;
-                                    return (<g key={i}>
-                                        <line x1={PADDING.left} x2={chartWidth - PADDING.right} y1={y} y2={y}
-                                              stroke="#E5E7EB" strokeWidth="1"/>
-                                        <text x={PADDING.left - 8} y={y + 4} textAnchor="end"
-                                              className="text-xs fill-gray-400">{formatAxisLabel(labelValue)}</text>
-                                    </g>);
-                                })}
-                                {Array.from({length: YEARS}).map((_, i) => {
-                                    const year = i + 1;
-                                    const x = PADDING.left + (year / YEARS) * (chartWidth - PADDING.left - PADDING.right);
-                                    return (
-                                        <text key={year} x={x} y={chartHeight - PADDING.bottom + 20} textAnchor="middle"
-                                              className="text-xs fill-gray-400">{year} {year === 1 ? 'год' : 'года'}</text>);
-                                })}
-                                <path d={createLinePath(points)} fill="none" stroke="#10B981" strokeWidth="3"
-                                      strokeLinecap="round" strokeLinejoin="round"/>
-                                {Array.from({length: YEARS}).map((_, i) => {
-                                    const yearIndex = i + 1;
-                                    const bandWidth = (chartWidth - PADDING.left - PADDING.right) / YEARS;
-                                    const x = PADDING.left + i * bandWidth;
-                                    return (<rect key={yearIndex} x={x} y={PADDING.top} width={bandWidth}
-                                                  height={chartHeight - PADDING.top - PADDING.bottom} fill="transparent"
-                                                  onPointerEnter={(e) => handlePointerEnter(e, yearIndex)}
-                                                  onPointerMove={handlePointerMove}
-                                                  onPointerLeave={handlePointerLeave}
-                                                  onPointerDown={() => handlePointerDown(yearIndex)}
-                                                  style={{touchAction: 'none'}}
-                                    />);
-                                })}
-                            </svg>
+                        <div className="lg:col-span-7">
+                            <div className="">
+                                <div className="grid grid-cols-2 items-center align-center mb-6">
+                                    <Input
+                                        type="range-number"
+                                        label="сумма инвестиций"
+                                        min={1000}
+                                        max={MAX_INVESTMENT_AMOUNT}
+                                        step={100}
+                                        value={investmentAmount}
+                                        onChange={(e) => setInvestmentAmount(Number(e.target.value || 0))}
+                                    />
+                                    <Input
+                                        type="range-number"
+                                        label="вы покупаете"
+                                        min={10}
+                                        max={1000000}
+                                        step={10}
+                                        value={projectionData.numberOfShares}
+                                        onChange={(e) => setInvestmentAmount(Number(e.target.value || 0))}
+                                    />
 
-                            {activeYear !== null && (
-                                <div ref={tooltipRef}
-                                     className="absolute bg-white rounded-2xl shadow-lg p-4 w-full max-w-sm pointer-events-none transition-opacity duration-200"
-                                     style={{left: tooltipPos.left, top: tooltipPos.top, opacity: 1}}>
-                                    <div
-                                        className="text-sm text-gray-500 mb-3 font-medium">{activeYear} {activeYear === 1 ? 'год' : 'года'}</div>
-                                    <div className="grid grid-cols-2 gap-3">
-                                        {[
-                                            {
-                                                label: 'вы покупаете',
-                                                value: `${projectionData.numberOfShares.toFixed(2)} акций`
-                                            },
-                                            {
-                                                label: 'предпологаемая цена акции',
-                                                value: formatCurrency(projectionData.series[activeYear].sharePrice).replace('RUB', '₽')
-                                            },
-                                            {
-                                                label: 'прогноз дивидендов',
-                                                value: formatCurrency(projectionData.series[activeYear].dividends).replace('RUB', '₽')
-                                            },
-                                            {
-                                                label: 'сумма вашего портфеля',
-                                                value: formatCurrency(projectionData.series[activeYear].portfolioValue).replace('RUB', '₽')
-                                            },
-                                        ].map(item => (
-                                            <div key={item.label} className="bg-gray-50 p-3 rounded-lg text-center">
-                                                <div
-                                                    className="text-xs text-gray-500 leading-tight mb-1">{item.label}</div>
-                                                <div className="font-semibold text-gray-900">{item.value}</div>
-                                            </div>))}
-                                    </div>
                                 </div>
-                            )}
+
+                                <div ref={chartContainerRef} className="relative w-full">
+                                    <svg width="100%" height={chartHeight} viewBox={`0 0 ${chartWidth} ${chartHeight}`}
+                                         className="block overflow-visible">
+                                        {Array.from({length: 6}).map((_, i) => {
+                                            const y = PADDING.top + i * (chartHeight - PADDING.top - PADDING.bottom) / 5;
+                                            const gainValue = yMax - i * (yRange / 5);
+                                            const labelValue = gainValue + investmentAmount;
+                                            return (<g key={i}>
+                                                <line x1={PADDING.left} x2={chartWidth - PADDING.right} y1={y} y2={y}
+                                                      stroke="#E5E7EB" strokeWidth="1"/>
+                                                <text x={PADDING.left - 8} y={y + 4} textAnchor="end"
+                                                      className="text-xs fill-gray-400">{formatAxisLabel(labelValue)}</text>
+                                            </g>);
+                                        })}
+                                        {Array.from({length: YEARS}).map((_, i) => {
+                                            const year = i + 1;
+                                            const x = PADDING.left + (year / YEARS) * (chartWidth - PADDING.left - PADDING.right);
+                                            return (
+                                                <text key={year} x={x} y={chartHeight - PADDING.bottom + 20} textAnchor="middle"
+                                                      className="text-xs fill-gray-400">{year} {year === 1 ? 'год' : 'года'}</text>);
+                                        })}
+                                        <path d={createLinePath(points)} fill="none" stroke="#10B981" strokeWidth="3"
+                                              strokeLinecap="round" strokeLinejoin="round"/>
+                                        {Array.from({length: YEARS}).map((_, i) => {
+                                            const yearIndex = i + 1;
+                                            const bandWidth = (chartWidth - PADDING.left - PADDING.right) / YEARS;
+                                            const x = PADDING.left + i * bandWidth;
+                                            return (<rect key={yearIndex} x={x} y={PADDING.top} width={bandWidth}
+                                                          height={chartHeight - PADDING.top - PADDING.bottom} fill="transparent"
+                                                          onPointerEnter={(e) => handlePointerEnter(e, yearIndex)}
+                                                          onPointerMove={handlePointerMove}
+                                                          onPointerLeave={handlePointerLeave}
+                                                          onPointerDown={() => handlePointerDown(yearIndex)}
+                                                          style={{touchAction: 'none'}}
+                                            />);
+                                        })}
+                                    </svg>
+
+                                    {activeYear !== null && (
+                                        <div ref={tooltipRef}
+                                             className="absolute bg-white rounded-2xl shadow-lg p-4 w-full max-w-sm pointer-events-none transition-opacity duration-200"
+                                             style={{left: tooltipPos.left, top: tooltipPos.top, opacity: 1}}>
+                                            <div
+                                                className="text-sm text-gray-500 mb-3 font-medium">{activeYear} {activeYear === 1 ? 'год' : 'года'}</div>
+                                            <div className="grid grid-cols-2 gap-3">
+                                                {[
+                                                    // {
+                                                    //     label: 'вы покупаете',
+                                                    //     value: `${projectionData.numberOfShares.toFixed(2)} акций`
+                                                    // },
+                                                    {
+                                                        label: 'предпологаемая цена акции',
+                                                        value: formatCurrency(projectionData.series[activeYear].sharePrice).replace('RUB', '₽')
+                                                    },
+                                                    {
+                                                        label: 'прогноз дивидендов',
+                                                        value: formatCurrency(projectionData.series[activeYear].dividends).replace('RUB', '₽')
+                                                    },
+                                                    {
+                                                        label: 'сумма вашего портфеля',
+                                                        value: formatCurrency(projectionData.series[activeYear].portfolioValue).replace('RUB', '₽')
+                                                    },
+                                                ].map(item => (
+                                                    <div key={item.label} className="bg-gray-50 p-3 rounded-lg text-center">
+                                                        <div
+                                                            className="text-xs text-gray-500 leading-tight mb-1">{item.label}</div>
+                                                        <div className="font-semibold text-gray-900">{item.value}</div>
+                                                    </div>))}
+                                            </div>
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
                         </div>
                     </div>
+                </div>
+                <div className="rounded-[40px] bg-gray-100 w-full flex flex-col gap-5 items-center h-full ">
+                    <div className="flex flex-col gap-5 items-center pb-[160px] pt-[49px]" >
+                        <h1 className="text-gray-900 text-[28px] font-medium text-center">Цена акции 30 сентября 2025</h1>
+                        <div className="flex flex-col gap-5 items-center">
+                            <span className="text-gray-400 font-bold text-[64px] text-center">3500</span>
+                            <p className="text-center text-green-400 font-bold text-[36px]"> 1400 (+200%)</p>
+                        </div>
+                        <button type="button" className="text-white bg-green-500 rounded-[10px] py-[19px] pl-[36px] pr-[36px]">купить акции</button>
+                    </div>
+                    <Image src={Pic1} alt={"pic1"}/>
                 </div>
             </div>
         </section>

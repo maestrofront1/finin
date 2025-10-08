@@ -101,7 +101,7 @@ export function InvestInFininHeroSection() {
 
 
                                 <div
-                                    className="gap-3 flex-col hidden max-md:flex w-full">
+                                    className="gap-3 flex-col hidden max-md:flex w-full mb-[40px]">
                                     <a
                                         href="https://www.cbr.ru/"
                                         target="_blank"
@@ -156,8 +156,10 @@ export function InvestInFininHeroSection() {
 
 
 
-                                <div className="flex justify-center gap-4 max-md:flex-col max-md:pt-[20px] max-md:w-full">
-                                    <Button variant="blur" className="max-md:w-full" withArrow={false}>Калькулятор инвестора</Button>
+                                <div className="flex justify-center gap-4 max-md:flex-col max-md:pt-[20px] max-md:w-full mb-[89px]">
+                                    <Button variant="gosuslugi" className="max-2xl:p-[10px] bg-white" href="https://www.gosuslugi.ru">
+                                        <span className="max-[1800px]:hidden">Войти через Госуслуги</span>
+                                    </Button>
                                     <Button variant="green" className="max-md:w-full" withArrow={false}>Личный кабинет</Button>
                                 </div>
                             </div>
