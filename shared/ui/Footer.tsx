@@ -1,12 +1,13 @@
+import Image from "next/image";
 import {Container} from './Container'
-
+import Logo from "public/img/Logo.png"
 export default function Footer() {
     const year = new Date().getFullYear();
     return (
         <footer className="mt-12">
             <Container className="">
                 <div className="flex flex-col">
-                    <div className="flex flex-col justify-between px-[140px] pt-[120px] rounded-[40px] bg-gradient-to-b from-[#003323] via-[#4EAA8D]    to-[#94DEC7] max-xl:px-10 max-lg:hidden ">
+                    <div className="flex flex-col justify-between px-[140px] pt-[50px] rounded-[40px] bg-[#1F242A]  max-xl:px-10 max-lg:hidden ">
                         <div className="flex ">
                             <div className="flex justify-between gap-10 ">
                                 <div className="flex flex-col gap-4">
@@ -88,137 +89,20 @@ export default function Footer() {
                                 </div>
                             </div>
                         </div>
-                        <div className="mt-[80px]">
-                            <svg width="100%" height="100%" viewBox="0 0 258 48" fill="none" className="bg-blend-color-[#FFFFFF33]"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M39.4743 0H24.8815V35.6934C23.1927 35.8786 21.4842 35.7025 19.8674 35.1766C18.2506 34.6507 16.7617 33.7868 15.4978 32.6412C14.2339 31.4956 13.2233 30.0941 12.532 28.5279C11.8407 26.9617 11.4842 25.2661 11.4856 23.5515C11.4811 20.5623 12.5637 17.6753 14.5282 15.4384C16.4927 13.2014 19.2023 11.77 22.1431 11.4158V0.0366086C16.1604 0.373378 10.5325 3.009 6.41465 7.40238C2.2968 11.7958 0.00151601 17.6136 0 23.6614C-2.06623e-07 29.9373 2.46966 35.9563 6.86586 40.3946C11.2621 44.833 17.2248 47.3272 23.4428 47.3288H37.9026V11.4036C38.3378 11.3609 38.7791 11.3304 39.2265 11.3304C42.3634 11.2486 45.4088 12.4011 47.7193 14.5442C50.0298 16.6873 51.4242 19.6532 51.6078 22.8149C51.7915 25.9767 50.75 29.0867 48.7036 31.4876C46.6571 33.8886 43.7659 35.3924 40.641 35.6812V47.2739C46.6504 46.9718 52.3147 44.3496 56.4622 39.95C60.6097 35.5503 62.9228 29.7099 62.9231 23.637C62.9151 17.3652 60.4411 11.3532 56.0444 6.92125C51.6478 2.48934 45.6881 -5.21023e-06 39.4743 0Z"
-                                    fill="#00A772"/>
-                                <path
-                                    d="M103.262 0.0305072L82.1041 20.7449V0H69.083V48L69.3127 47.7559V47.762L100.56 17.7979V47.3349H113.581V0H103.274L103.262 0.0305072Z"
-                                    fill="#00A772"/>
-                                <path
-                                    d="M147.813 18.5545H133.154V0.469811L120.133 12.9534V47.3349H133.154V29.5004H147.813V47.3349H160.828V0H147.813V18.5545Z"
-                                    fill="#00A772"/>
-                                <path
-                                    d="M200.439 0.0305072L179.281 20.7449V0H166.26V48L166.49 47.7559V47.762L197.737 17.7979V47.3349H210.758V0H200.457L200.439 0.0305072Z"
-                                    fill="#00A772"/>
-                                <path
-                                    d="M244.985 0V18.5545H230.326V0.469811L217.311 12.9534V47.3349H230.326V29.5004H244.985V47.3349H258V0H244.985Z"
-                                    fill="#00A772"/>
-                            </svg>
-                        </div>
-                    </div>
-                    <div className="flex justify-between items-center mt-[20px] text-center ">
-                        <span>Платформа состоит в Реестре операторов<br/> инвестиционных платформ ЦБ РФ</span>
-                        <span>Оператор платформы: общество с ограниченной<br/> ответственностью «ФИНИН-К»</span>
-                        <span>ОГРН 1057748260350 от 19 сентября 2005 г.<br/> ИНН / КПП 7705687113 / 770401001</span>
-                    </div>
-                </div>
+                        <div className="relative w-full h-[100%] mt-[80px] overflow-hidden">
+                            {/* Градиентный фон */}
+                            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_#94DEC7,_#4EAA8D,_#003323)]  z-0" />
 
-                <div className="flex flex-col">
-                    <div className="flex flex-col justify-between px-[140px] pt-[120px] rounded-[40px] bg-gradient-to-b from-[#003323] via-[#4EAA8D]    to-[#94DEC7] max-xl:px-10 max-lg:hidden ">
-                        <div className="flex ">
-                            <div className="flex justify-between gap-10 ">
-                                <div className="flex flex-col gap-4">
-                                    <h1 className="text-white text-[22px]">Финин — экосистема инвестиций<br/>
-                                        и развития бизнеса</h1>
-                                    <div className="flex flex-col ">
-                                        <p className="text-[20px] leading-[40px] text-white">Социальные сети</p>
-                                        <div className="flex flex-row gap-2">
-                                            <a href="https://telegram.com" className="cursor-pointer">
-                                                <svg width="38" height="37" viewBox="0 0 38 37" fill="none"
-                                                     xmlns="http://www.w3.org/2000/svg">
-                                                    <rect width="37.0226" height="37" rx="10" fill="white"/>
-                                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                                          d="M10.2038 18.2433C14.9042 16.1967 18.0386 14.8474 19.6069 14.1955C24.0847 12.3341 25.0152 12.0108 25.6216 12.0001C25.755 11.9978 26.0533 12.0308 26.2465 12.1875C26.4096 12.3197 26.4545 12.4984 26.4759 12.6239C26.4974 12.7493 26.5242 13.035 26.5029 13.2582C26.2602 15.8062 25.2103 21.9896 24.6761 24.8435C24.4501 26.051 24.005 26.4559 23.5742 26.4956C22.6378 26.5817 21.9268 25.8771 21.0199 25.283C19.6008 24.3533 18.7991 23.7746 17.4216 22.8674C15.8296 21.819 16.8616 21.2427 17.7689 20.301C18.0063 20.0545 22.1319 16.3043 22.2117 15.9641C22.2217 15.9215 22.231 15.7629 22.1367 15.6792C22.0424 15.5955 21.9033 15.6241 21.8029 15.6469C21.6605 15.6792 19.3935 17.1767 15.0017 20.1395C14.3582 20.5811 13.7753 20.7962 13.2531 20.785C12.6774 20.7725 11.5699 20.4596 10.7467 20.1922C9.7369 19.8642 8.93436 19.6907 9.00424 19.1336C9.04064 18.8434 9.44048 18.5467 10.2038 18.2433Z"
-                                                          fill="#A5ADBD"/>
-                                                </svg>
-                                            </a>
-                                            <a href="https://vk.com" className="cursor-pointer">
-                                                <svg width="38" height="37" viewBox="0 0 38 37" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <rect x="0.022583" width="37.0226" height="37" rx="10" fill="white"/>
-                                                    <path d="M11.7666 13H9.72318C9.13936 13 9.02258 13.2746 9.02258 13.5774C9.02258 14.1182 9.71534 16.8003 12.2482 20.3476C13.9367 22.7701 16.3157 24.0833 18.4806 24.0833C19.7794 24.0833 19.9401 23.7917 19.9401 23.2893V21.4583C19.9401 20.875 20.0632 20.7586 20.4744 20.7586C20.7776 20.7586 21.2971 20.91 22.5094 22.078C22.9219 22.4901 23.2318 22.8346 23.4842 23.1151C24.0797 23.777 24.3553 24.0833 24.9026 24.0833H26.946C27.5298 24.0833 27.8217 23.7917 27.6533 23.2161C27.4691 22.6424 26.8076 21.8101 25.9298 20.8235C25.6883 20.5383 25.3857 20.2421 25.1177 19.9798C24.8571 19.7248 24.6294 19.5019 24.5227 19.3526C24.2196 18.9633 24.3062 18.7902 24.5227 18.4442C24.5227 18.4442 27.0122 14.9401 27.272 13.7505C27.4019 13.3179 27.272 13 26.6541 13H24.6107C24.0912 13 23.8516 13.2746 23.7217 13.5774C23.7217 13.5774 22.6826 16.1081 21.2105 17.752C20.7342 18.2278 20.5178 18.3793 20.258 18.3793C20.1281 18.3793 19.9401 18.2278 19.9401 17.7953V13.7505C19.9401 13.2314 19.7893 13 19.3563 13H16.1452C15.8206 13 15.6253 13.2409 15.6253 13.4693C15.6253 13.6572 15.7325 13.7899 15.8694 13.9591C16.091 14.2333 16.3903 14.6034 16.4372 15.4592V18.4658C16.4372 19.125 16.318 19.2445 16.0583 19.2445C15.3655 19.2445 13.6805 16.7025 12.6811 13.7937C12.4853 13.2284 12.2888 13 11.7666 13Z" fill="#A5ADBD"/>
-                                                </svg>
-                                            </a>
-                                            <a href="https://dzen.ru" className="cursor-pointer">
-                                                <svg width="38" height="37" viewBox="0 0 38 37" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <rect x="0.045166" width="37.0226" height="37" rx="10" fill="white"/>
-                                                    <path d="M9.04907 18.7852C12.9012 18.8332 15.0666 19.0968 16.512 20.541C17.9573 21.9856 18.2217 24.1499 18.2698 28C13.2441 27.8521 9.19702 23.8078 9.04907 18.7852ZM28.0569 18.7852C27.9089 23.8078 23.8619 27.8521 18.8362 28C18.8842 24.1501 19.1478 21.9856 20.593 20.541C22.0384 19.0965 24.2044 18.8332 28.0569 18.7852ZM18.2659 9C18.2178 12.8501 17.9543 15.0145 16.509 16.459C15.0636 17.9036 12.8977 18.1668 9.04517 18.2148C9.1932 13.1923 13.2403 9.14786 18.2659 9ZM18.8362 9C23.8618 9.14784 27.9088 13.1923 28.0569 18.2148C24.2044 18.1668 22.0384 17.9035 20.593 16.459C19.1478 15.0145 18.8842 12.85 18.8362 9Z" fill="#A5ADBD"/>
-                                                </svg>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="flex justify-between gap-5 ">
-                                    <div className="flex flex-col gap-4 w-1/3">
-                                        <a className="text-white" href="/">Инвесторам</a>
-                                        <a className="text-white" href="/">Поручителям</a>
-                                        <a className="text-white" href="/">Акционирование</a>
-                                    </div>
-                                    <div className="flex flex-col gap-4 w-1/3">
-                                        <a className="text-white" href="/">Заемщикам</a>
-                                        <a className="text-white" href="/">Партнерам</a>
-                                        <a className="text-white" href="/">О нас</a>
-                                    </div>
-                                    <div className="flex flex-col gap-4 w-1/3">
-                                        <a className="text-white" href="/">Документы</a>
-                                        <a className="text-white" href="/">Новости</a>
-                                        <a className="text-white" href="/">Блог</a>
-                                    </div>
-                                    <div className="flex flex-col gap-4 w-1/3">
-                                        <a className="text-white" href="/">Правила платформы</a>
-                                        <a className="text-white" href="/">Политика обработки персональных данных</a>
-                                    </div>
-                                    <div className="flex flex-col gap-4 w-1/3">
-                                        <div className="flex flex-col gap-2">
-                                            <p className="text-[20px] leading-[24px] text-white">
-                                                Email
-                                            </p>
-                                            <a href="mailto:info@finin.pro" className="text-[22px] leading-[24px] text-white hover:underline">
-                                                info@finin.pro
-                                            </a>
-                                        </div>
-                                        <div className="flex flex-col gap-2">
-                                            <p className="text-[20px] leading-[24px] text-white">
-                                                Телефон
-                                            </p>
-                                            <a href="tel:+74994082143" className="text-[22px] leading-[24px] text-white hover:underline">
-                                                +7 (499) 408 21 43
-                                            </a>
-                                        </div>
-                                        <div className="flex flex-col gap-2">
-                                            <p className="text-[20px] leading-[24px] text-white">
-                                                Адрес
-                                            </p>
-                                            <a href="https://yandex.ru/maps" className="text-[22px] leading-[24px] text-white hover:underline">
-                                                119034, город Москва, <br/> Гоголевский б-р, д. 3, помещ. 6/1
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
+                            {/* Блюр поверх градиента */}
+                            <div className="absolute inset-0 blur-[300px] z-0" />
+
+                            {/* Логотип поверх фона */}
+                            <div className="relative z-10 flex items-center justify-center  ">
+                                <Image src={Logo} alt="logo"  className="object-contain" />
                             </div>
                         </div>
-                        <div className="mt-[80px]">
-                            <svg width="100%" height="100%" viewBox="0 0 258 48" fill="none" className="bg-blend-color-[#FFFFFF33]"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M39.4743 0H24.8815V35.6934C23.1927 35.8786 21.4842 35.7025 19.8674 35.1766C18.2506 34.6507 16.7617 33.7868 15.4978 32.6412C14.2339 31.4956 13.2233 30.0941 12.532 28.5279C11.8407 26.9617 11.4842 25.2661 11.4856 23.5515C11.4811 20.5623 12.5637 17.6753 14.5282 15.4384C16.4927 13.2014 19.2023 11.77 22.1431 11.4158V0.0366086C16.1604 0.373378 10.5325 3.009 6.41465 7.40238C2.2968 11.7958 0.00151601 17.6136 0 23.6614C-2.06623e-07 29.9373 2.46966 35.9563 6.86586 40.3946C11.2621 44.833 17.2248 47.3272 23.4428 47.3288H37.9026V11.4036C38.3378 11.3609 38.7791 11.3304 39.2265 11.3304C42.3634 11.2486 45.4088 12.4011 47.7193 14.5442C50.0298 16.6873 51.4242 19.6532 51.6078 22.8149C51.7915 25.9767 50.75 29.0867 48.7036 31.4876C46.6571 33.8886 43.7659 35.3924 40.641 35.6812V47.2739C46.6504 46.9718 52.3147 44.3496 56.4622 39.95C60.6097 35.5503 62.9228 29.7099 62.9231 23.637C62.9151 17.3652 60.4411 11.3532 56.0444 6.92125C51.6478 2.48934 45.6881 -5.21023e-06 39.4743 0Z"
-                                    fill="#00A772"/>
-                                <path
-                                    d="M103.262 0.0305072L82.1041 20.7449V0H69.083V48L69.3127 47.7559V47.762L100.56 17.7979V47.3349H113.581V0H103.274L103.262 0.0305072Z"
-                                    fill="#00A772"/>
-                                <path
-                                    d="M147.813 18.5545H133.154V0.469811L120.133 12.9534V47.3349H133.154V29.5004H147.813V47.3349H160.828V0H147.813V18.5545Z"
-                                    fill="#00A772"/>
-                                <path
-                                    d="M200.439 0.0305072L179.281 20.7449V0H166.26V48L166.49 47.7559V47.762L197.737 17.7979V47.3349H210.758V0H200.457L200.439 0.0305072Z"
-                                    fill="#00A772"/>
-                                <path
-                                    d="M244.985 0V18.5545H230.326V0.469811L217.311 12.9534V47.3349H230.326V29.5004H244.985V47.3349H258V0H244.985Z"
-                                    fill="#00A772"/>
-                            </svg>
-                        </div>
+
+
                     </div>
                     <div className="flex justify-between items-center mt-[20px] text-center ">
                         <span>Платформа состоит в Реестре операторов<br/> инвестиционных платформ ЦБ РФ</span>
@@ -230,114 +114,112 @@ export default function Footer() {
 
 
 
-                {/*<div className="hidden flex-col p-10  rounded-[40px] bg-[#1F242A] max-xl:px-10 max-lg:flex max-md:p-5">*/}
-                {/*    <div className="flex flex-col w-full justify-between gap-[28px] mb-[28px]">*/}
-                {/*        <div className="flex flex-col justify-between">*/}
-                {/*            <h1 className="text-white text-[22px]">Финин — экосистема инвестиций<br/>*/}
-                {/*                и развития бизнеса</h1>*/}
-                {/*        </div>*/}
-                {/*        <div className="flex flex-col gap-4 w-[90%]">*/}
-                {/*            <div className="flex flex-col gap-2">*/}
-                {/*                <p className="text-[20px] leading-[24px] text-gray-300">*/}
-                {/*                    Email*/}
-                {/*                </p>*/}
-                {/*                <a href="mailto:info@finin.pro" className="text-[22px] leading-[24px] text-gray-400 hover:underline">*/}
-                {/*                    info@finin.pro*/}
-                {/*                </a>*/}
-                {/*            </div>*/}
-                {/*            <div className="flex flex-col gap-2">*/}
-                {/*                <p className="text-[20px] leading-[24px] text-gray-300">*/}
-                {/*                    Телефон*/}
-                {/*                </p>*/}
-                {/*                <a href="tel:+74994082143" className="text-[22px] leading-[24px] text-gray-400 hover:underline">*/}
-                {/*                    +7 (499) 408 21 43*/}
-                {/*                </a>*/}
-                {/*            </div>*/}
-                {/*            <div className="flex flex-col gap-2">*/}
-                {/*                <p className="text-[20px] leading-[24px] text-gray-300">*/}
-                {/*                    Адрес*/}
-                {/*                </p>*/}
-                {/*                <a href="https://yandex.ru/maps" className="text-[22px] leading-[24px] text-gray-400 hover:underline">*/}
-                {/*                    119034, город Москва, <br/> Гоголевский б-р, д. 3, помещ. 6/1*/}
-                {/*                </a>*/}
-                {/*            </div>*/}
-                {/*        </div>*/}
 
-                {/*        <div className="flex flex-col gap-3 w-[90%]">*/}
-                {/*            <p className="text-[20px] leading-[40px] text-gray-300">Социальные сети</p>*/}
-                {/*            <div className="flex flex-row gap-2">*/}
-                {/*                <a href="https://telegram.com" className="cursor-pointer">*/}
-                {/*                    <svg width="38" height="37" viewBox="0 0 38 37" fill="none"*/}
-                {/*                         xmlns="http://www.w3.org/2000/svg">*/}
-                {/*                        <rect width="37.0226" height="37" rx="10" fill="white"/>*/}
-                {/*                        <path fill-rule="evenodd" clip-rule="evenodd"*/}
-                {/*                              d="M10.2038 18.2433C14.9042 16.1967 18.0386 14.8474 19.6069 14.1955C24.0847 12.3341 25.0152 12.0108 25.6216 12.0001C25.755 11.9978 26.0533 12.0308 26.2465 12.1875C26.4096 12.3197 26.4545 12.4984 26.4759 12.6239C26.4974 12.7493 26.5242 13.035 26.5029 13.2582C26.2602 15.8062 25.2103 21.9896 24.6761 24.8435C24.4501 26.051 24.005 26.4559 23.5742 26.4956C22.6378 26.5817 21.9268 25.8771 21.0199 25.283C19.6008 24.3533 18.7991 23.7746 17.4216 22.8674C15.8296 21.819 16.8616 21.2427 17.7689 20.301C18.0063 20.0545 22.1319 16.3043 22.2117 15.9641C22.2217 15.9215 22.231 15.7629 22.1367 15.6792C22.0424 15.5955 21.9033 15.6241 21.8029 15.6469C21.6605 15.6792 19.3935 17.1767 15.0017 20.1395C14.3582 20.5811 13.7753 20.7962 13.2531 20.785C12.6774 20.7725 11.5699 20.4596 10.7467 20.1922C9.7369 19.8642 8.93436 19.6907 9.00424 19.1336C9.04064 18.8434 9.44048 18.5467 10.2038 18.2433Z"*/}
-                {/*                              fill="#A5ADBD"/>*/}
-                {/*                    </svg>*/}
-                {/*                </a>*/}
-                {/*                <a href="https://vk.com" className="cursor-pointer">*/}
-                {/*                    <svg width="38" height="37" viewBox="0 0 38 37" fill="none" xmlns="http://www.w3.org/2000/svg">*/}
-                {/*                        <rect x="0.022583" width="37.0226" height="37" rx="10" fill="white"/>*/}
-                {/*                        <path d="M11.7666 13H9.72318C9.13936 13 9.02258 13.2746 9.02258 13.5774C9.02258 14.1182 9.71534 16.8003 12.2482 20.3476C13.9367 22.7701 16.3157 24.0833 18.4806 24.0833C19.7794 24.0833 19.9401 23.7917 19.9401 23.2893V21.4583C19.9401 20.875 20.0632 20.7586 20.4744 20.7586C20.7776 20.7586 21.2971 20.91 22.5094 22.078C22.9219 22.4901 23.2318 22.8346 23.4842 23.1151C24.0797 23.777 24.3553 24.0833 24.9026 24.0833H26.946C27.5298 24.0833 27.8217 23.7917 27.6533 23.2161C27.4691 22.6424 26.8076 21.8101 25.9298 20.8235C25.6883 20.5383 25.3857 20.2421 25.1177 19.9798C24.8571 19.7248 24.6294 19.5019 24.5227 19.3526C24.2196 18.9633 24.3062 18.7902 24.5227 18.4442C24.5227 18.4442 27.0122 14.9401 27.272 13.7505C27.4019 13.3179 27.272 13 26.6541 13H24.6107C24.0912 13 23.8516 13.2746 23.7217 13.5774C23.7217 13.5774 22.6826 16.1081 21.2105 17.752C20.7342 18.2278 20.5178 18.3793 20.258 18.3793C20.1281 18.3793 19.9401 18.2278 19.9401 17.7953V13.7505C19.9401 13.2314 19.7893 13 19.3563 13H16.1452C15.8206 13 15.6253 13.2409 15.6253 13.4693C15.6253 13.6572 15.7325 13.7899 15.8694 13.9591C16.091 14.2333 16.3903 14.6034 16.4372 15.4592V18.4658C16.4372 19.125 16.318 19.2445 16.0583 19.2445C15.3655 19.2445 13.6805 16.7025 12.6811 13.7937C12.4853 13.2284 12.2888 13 11.7666 13Z" fill="#A5ADBD"/>*/}
-                {/*                    </svg>*/}
-                {/*                </a>*/}
-                {/*                <a href="https://dzen.ru" className="cursor-pointer">*/}
-                {/*                    <svg width="38" height="37" viewBox="0 0 38 37" fill="none" xmlns="http://www.w3.org/2000/svg">*/}
-                {/*                        <rect x="0.045166" width="37.0226" height="37" rx="10" fill="white"/>*/}
-                {/*                        <path d="M9.04907 18.7852C12.9012 18.8332 15.0666 19.0968 16.512 20.541C17.9573 21.9856 18.2217 24.1499 18.2698 28C13.2441 27.8521 9.19702 23.8078 9.04907 18.7852ZM28.0569 18.7852C27.9089 23.8078 23.8619 27.8521 18.8362 28C18.8842 24.1501 19.1478 21.9856 20.593 20.541C22.0384 19.0965 24.2044 18.8332 28.0569 18.7852ZM18.2659 9C18.2178 12.8501 17.9543 15.0145 16.509 16.459C15.0636 17.9036 12.8977 18.1668 9.04517 18.2148C9.1932 13.1923 13.2403 9.14786 18.2659 9ZM18.8362 9C23.8618 9.14784 27.9088 13.1923 28.0569 18.2148C24.2044 18.1668 22.0384 17.9035 20.593 16.459C19.1478 15.0145 18.8842 12.85 18.8362 9Z" fill="#A5ADBD"/>*/}
-                {/*                    </svg>*/}
-                {/*                </a>*/}
-                {/*            </div>*/}
-                {/*        </div>*/}
+                <div className="hidden flex-col p-10  rounded-[40px] bg-gradient-to-b bg-[#1F242A] via-gray-800 to-green-700 transition-all duration-300 max-xl:px-10 max-lg:flex max-md:p-5">
+                    <div className="flex flex-col w-full justify-between gap-[28px] mb-[28px]">
+                        <div className="flex flex-col justify-between">
+                            <h1 className="text-white text-[22px]">Финин — экосистема инвестиций<br/>
+                                и развития бизнеса</h1>
+                        </div>
+                        <div className="flex flex-col gap-4 w-[90%]">
+                            <div className="flex flex-col gap-2">
+                                <p className="text-[20px] leading-[24px] text-gray-300">
+                                    Email
+                                </p>
+                                <a href="mailto:info@finin.pro" className="text-[22px] leading-[24px] text-gray-400 hover:underline">
+                                    info@finin.pro
+                                </a>
+                            </div>
+                            <div className="flex flex-col gap-2">
+                                <p className="text-[20px] leading-[24px] text-gray-300">
+                                    Телефон
+                                </p>
+                                <a href="tel:+74994082143" className="text-[22px] leading-[24px] text-gray-400 hover:underline">
+                                    +7 (499) 408 21 43
+                                </a>
+                            </div>
+                            <div className="flex flex-col gap-2">
+                                <p className="text-[20px] leading-[24px] text-gray-300">
+                                    Адрес
+                                </p>
+                                <a href="https://yandex.ru/maps" className="text-[22px] leading-[24px] text-gray-400 hover:underline">
+                                    119034, город Москва, <br/> Гоголевский б-р, д. 3, помещ. 6/1
+                                </a>
+                            </div>
+                        </div>
 
-                {/*    </div>*/}
+                        <div className="flex flex-col gap-3 w-[90%]">
+                            <p className="text-[20px] leading-[40px] text-gray-300">Социальные сети</p>
+                            <div className="flex flex-row gap-2">
+                                <a href="https://telegram.com" className="cursor-pointer">
+                                    <svg width="38" height="37" viewBox="0 0 38 37" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <rect width="37.0226" height="37" rx="10" fill="white"/>
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                              d="M10.2038 18.2433C14.9042 16.1967 18.0386 14.8474 19.6069 14.1955C24.0847 12.3341 25.0152 12.0108 25.6216 12.0001C25.755 11.9978 26.0533 12.0308 26.2465 12.1875C26.4096 12.3197 26.4545 12.4984 26.4759 12.6239C26.4974 12.7493 26.5242 13.035 26.5029 13.2582C26.2602 15.8062 25.2103 21.9896 24.6761 24.8435C24.4501 26.051 24.005 26.4559 23.5742 26.4956C22.6378 26.5817 21.9268 25.8771 21.0199 25.283C19.6008 24.3533 18.7991 23.7746 17.4216 22.8674C15.8296 21.819 16.8616 21.2427 17.7689 20.301C18.0063 20.0545 22.1319 16.3043 22.2117 15.9641C22.2217 15.9215 22.231 15.7629 22.1367 15.6792C22.0424 15.5955 21.9033 15.6241 21.8029 15.6469C21.6605 15.6792 19.3935 17.1767 15.0017 20.1395C14.3582 20.5811 13.7753 20.7962 13.2531 20.785C12.6774 20.7725 11.5699 20.4596 10.7467 20.1922C9.7369 19.8642 8.93436 19.6907 9.00424 19.1336C9.04064 18.8434 9.44048 18.5467 10.2038 18.2433Z"
+                                              fill="#A5ADBD"/>
+                                    </svg>
+                                </a>
+                                <a href="https://vk.com" className="cursor-pointer">
+                                    <svg width="38" height="37" viewBox="0 0 38 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="0.022583" width="37.0226" height="37" rx="10" fill="white"/>
+                                        <path d="M11.7666 13H9.72318C9.13936 13 9.02258 13.2746 9.02258 13.5774C9.02258 14.1182 9.71534 16.8003 12.2482 20.3476C13.9367 22.7701 16.3157 24.0833 18.4806 24.0833C19.7794 24.0833 19.9401 23.7917 19.9401 23.2893V21.4583C19.9401 20.875 20.0632 20.7586 20.4744 20.7586C20.7776 20.7586 21.2971 20.91 22.5094 22.078C22.9219 22.4901 23.2318 22.8346 23.4842 23.1151C24.0797 23.777 24.3553 24.0833 24.9026 24.0833H26.946C27.5298 24.0833 27.8217 23.7917 27.6533 23.2161C27.4691 22.6424 26.8076 21.8101 25.9298 20.8235C25.6883 20.5383 25.3857 20.2421 25.1177 19.9798C24.8571 19.7248 24.6294 19.5019 24.5227 19.3526C24.2196 18.9633 24.3062 18.7902 24.5227 18.4442C24.5227 18.4442 27.0122 14.9401 27.272 13.7505C27.4019 13.3179 27.272 13 26.6541 13H24.6107C24.0912 13 23.8516 13.2746 23.7217 13.5774C23.7217 13.5774 22.6826 16.1081 21.2105 17.752C20.7342 18.2278 20.5178 18.3793 20.258 18.3793C20.1281 18.3793 19.9401 18.2278 19.9401 17.7953V13.7505C19.9401 13.2314 19.7893 13 19.3563 13H16.1452C15.8206 13 15.6253 13.2409 15.6253 13.4693C15.6253 13.6572 15.7325 13.7899 15.8694 13.9591C16.091 14.2333 16.3903 14.6034 16.4372 15.4592V18.4658C16.4372 19.125 16.318 19.2445 16.0583 19.2445C15.3655 19.2445 13.6805 16.7025 12.6811 13.7937C12.4853 13.2284 12.2888 13 11.7666 13Z" fill="#A5ADBD"/>
+                                    </svg>
+                                </a>
+                                <a href="https://dzen.ru" className="cursor-pointer">
+                                    <svg width="38" height="37" viewBox="0 0 38 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="0.045166" width="37.0226" height="37" rx="10" fill="white"/>
+                                        <path d="M9.04907 18.7852C12.9012 18.8332 15.0666 19.0968 16.512 20.541C17.9573 21.9856 18.2217 24.1499 18.2698 28C13.2441 27.8521 9.19702 23.8078 9.04907 18.7852ZM28.0569 18.7852C27.9089 23.8078 23.8619 27.8521 18.8362 28C18.8842 24.1501 19.1478 21.9856 20.593 20.541C22.0384 19.0965 24.2044 18.8332 28.0569 18.7852ZM18.2659 9C18.2178 12.8501 17.9543 15.0145 16.509 16.459C15.0636 17.9036 12.8977 18.1668 9.04517 18.2148C9.1932 13.1923 13.2403 9.14786 18.2659 9ZM18.8362 9C23.8618 9.14784 27.9088 13.1923 28.0569 18.2148C24.2044 18.1668 22.0384 17.9035 20.593 16.459C19.1478 15.0145 18.8842 12.85 18.8362 9Z" fill="#A5ADBD"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
 
-                {/*    <div className="flex w-full flex-col">*/}
-                {/*        <div className="flex flex-col gap-4 w-[90%]">*/}
-                {/*            <a className="text-gray-300" href="/">Инвесторам</a>*/}
-                {/*            <a className="text-gray-300" href="/">Заемщикам</a>*/}
-                {/*            <a className="text-gray-300" href="/">Партнерам</a>*/}
-                {/*            <a className="text-gray-300" href="/">Поручителям</a>*/}
-                {/*            <a className="text-gray-300" href="/">Акционирование</a>*/}
-                {/*        </div>*/}
+                    </div>
 
-                {/*        <span id="spacer" className="w-full h-px bg-gray-300 my-[28px]"></span>*/}
+                    <div className="flex w-full flex-col">
+                        <div className="flex flex-col gap-4 w-[90%]">
+                            <a className="text-gray-300" href="/">Инвесторам</a>
+                            <a className="text-gray-300" href="/">Заемщикам</a>
+                            <a className="text-gray-300" href="/">Партнерам</a>
+                            <a className="text-gray-300" href="/">Поручителям</a>
+                            <a className="text-gray-300" href="/">Акционирование</a>
+                        </div>
 
-                {/*        <div className="flex flex-col gap-4 w-[90%]">*/}
-                {/*            <a className="text-gray-300" href="/">Платформа состоит в Реестре операторов инвестиционных платформ ЦБ РФ</a>*/}
-                {/*            <a className="text-gray-300" href="/">Правила платформы</a>*/}
-                {/*            <a className="text-gray-300" href="/">Политика обработки персональных данных</a>*/}
-                {/*        </div>*/}
 
-                {/*        <span id="spacer" className="w-full h-px bg-gray-300 my-[28px]"></span>*/}
 
-                {/*        <div className="flex flex-col gap-4 w-[90%]">*/}
-                {/*            <a className="text-gray-300" href="/">Предложения от партнеров</a>*/}
-                {/*            <a className="text-gray-300" href="/">Банковские гарантии</a>*/}
-                {/*            <a className="text-gray-300" href="/">Юридическое сопровождение</a>*/}
-                {/*            <a className="text-gray-300" href="/">Коллекторские услуги</a>*/}
-                {/*        </div>*/}
+                        <div className="flex flex-col gap-4 w-[90%]">
+                            <a className="text-gray-300" href="/">Платформа состоит в Реестре операторов инвестиционных платформ ЦБ РФ</a>
+                            <a className="text-gray-300" href="/">Правила платформы</a>
+                            <a className="text-gray-300" href="/">Политика обработки персональных данных</a>
+                        </div>
 
-                {/*        <span id="spacer" className="w-full h-px bg-gray-300 my-[28px]"></span>*/}
 
-                {/*        <div className="flex flex-col gap-4 w-[90%]">*/}
-                {/*            <a className="text-gray-300" href="/">Информация</a>*/}
-                {/*            <a className="text-gray-300" href="/">Вопросы и ответы</a>*/}
-                {/*            <a className="text-gray-300" href="/">О нас</a>*/}
-                {/*            <a className="text-gray-300" href="/">Новости</a>*/}
-                {/*            <a className="text-gray-300" href="/">Блог</a>*/}
-                {/*            <a className="text-gray-300" href="/">Документы</a>*/}
-                {/*        </div>*/}
-                {/*    </div>*/}
 
-                {/*    <span id="spacer" className="w-full h-px bg-gray-300 my-[28px]"></span>*/}
+                        <div className="flex flex-col gap-4 w-[90%]">
+                            <a className="text-gray-300" href="/">Предложения от партнеров</a>
+                            <a className="text-gray-300" href="/">Банковские гарантии</a>
+                            <a className="text-gray-300" href="/">Юридическое сопровождение</a>
+                            <a className="text-gray-300" href="/">Коллекторские услуги</a>
+                        </div>
 
-                {/*    <div className="flex flex-col w-full gap-6">*/}
-                {/*        <p className="text-[14px] leading-[16px] text-gray-300  w-[90%]">Оператор платформы: ООО «ФИНИН-К»</p>*/}
-                {/*        <p className="text-[14px] leading-[16px] text-gray-300 w-[90%]">ОГРН 1057748260350 от 19 сентября 2005 г. <br/>ИНН / КПП 7705687113 / 770401001</p>*/}
-                {/*        <p className="text-[14px] leading-[16px] text-gray-300 w-[90%]">© 2025, ФИНИН</p>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
+
+                        <div className="flex flex-col gap-4 w-[90%]">
+                            <a className="text-gray-300" href="/">Информация</a>
+                            <a className="text-gray-300" href="/">Вопросы и ответы</a>
+                            <a className="text-gray-300" href="/">О нас</a>
+                            <a className="text-gray-300" href="/">Новости</a>
+                            <a className="text-gray-300" href="/">Блог</a>
+                            <a className="text-gray-300" href="/">Документы</a>
+                        </div>
+                    </div>
+
+                    <div className="flex flex-col w-full gap-6">
+                        <p className="text-[14px] leading-[16px] text-gray-300  w-[90%]">Оператор платформы: ООО «ФИНИН-К»</p>
+                        <p className="text-[14px] leading-[16px] text-gray-300 w-[90%]">ОГРН 1057748260350 от 19 сентября 2005 г. <br/>ИНН / КПП 7705687113 / 770401001</p>
+                        <p className="text-[14px] leading-[16px] text-gray-300 w-[90%]">© 2025, ФИНИН</p>
+                    </div>
+                </div>
             </Container>
         </footer>
     );
