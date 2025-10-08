@@ -9,6 +9,9 @@ export default {
   ],
   theme: {
     extend: {
+      boxShadow: {
+        'soft-blue': '0 0 17.7px rgba(66, 83, 118, 0.2)',
+      },
       fontFamily: {
         sans: ["Gilroy","sans-serif"],
       },

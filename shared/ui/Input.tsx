@@ -66,7 +66,7 @@ const Input: React.FC<InputProps> = ({
               </label>
           )}
           <div className="relative rounded-2xl bg-gray-100 px-4 py-4">
-            <div className="text-[18px] font-regular text-gray-800">{currentValue}</div>
+            <div className="text-[18px] font-regular text-gray-800">{Number(currentValue).toLocaleString('ru-RU')}</div>
             <input
                 type="range"
                 min={min}

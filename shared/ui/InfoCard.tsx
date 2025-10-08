@@ -40,7 +40,7 @@ export function MainCard({
       <div className={cn("flex-1 flex flex-col items-center w-[33%]" +
           " max-md:w-full", variant === "horizontal" ? "" : " w-full")}>
         <h3 className="text-[28px] text-gray-400 font-bold mb-[20px] line-height-[1] whitespace-nowrap text-center">{title}</h3>
-        {description && <p className="text-gray-300 text-[18px] mb-[20px] line-height-[1] text-center ">{description}</p>}
+        {description && <p className="text-gray-300 text-[18px] mb-[20px] line-height-[1] text-center w-[338px] text-center justify-start text-[#a5adbd] text-[22px] font-normal ">{description}</p>}
         {subtitle && <p className="text-gray-400 text-[36px] font-regular mb-[28px] line-height-[1] text-center ">{subtitle}</p>}
         {buttonText && <Button withArrow={false} variant="green" href={href} >{buttonText}</Button>}
       </div>

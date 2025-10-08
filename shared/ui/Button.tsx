@@ -71,7 +71,7 @@ export function Button({
     text: ' bg-transparent text-green-600 hover:text-green-700 active:text-green-700 whitespace-nowrap',
     link: 'bg-transparent text-muted-300 hover:text-green-600 active:text-green-700 underline underline-offset-2',
     gosuslugi:
-      'w-max border border-blue-500 text-blue-500 rounded-[10px] px-[40px] py-[10px] gap-4 hover:bg-blue-500/10 active:bg-blue-500/20 text-[20px]',
+      'w-max bg-white border border-blue-500 text-blue-500 rounded-[10px] px-[40px] py-[10px] gap-4 hover:bg-blue-500/10 active:bg-blue-500/20 text-[20px]',
   }
 
   const chevronClass = variant === 'white' ? 'text-green-600' : undefined
