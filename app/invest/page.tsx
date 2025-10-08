@@ -9,11 +9,11 @@ import CardScrollList from "@features/home/components/CardScrollList";
 import MarqueeBlocks from "@shared/sections/MarqueeBlocks";
 import {PartnersSection} from "@shared/sections/PartnersSection";
 import {EngagementSections} from "@features/home/components/EngagementSections";
-import Card1 from "../../public/img/loans/cards-1/pic.png";
-import Card2 from "../../public/img/loans/cards-1/pic-1.png";
-import Card3 from "../../public/img/loans/cards-1/pic-2.png";
-import Card4 from "../../public/img/loans/cards-1/pic-3.png";
-import Card5 from "../../public/img/loans/cards-1/pic-4.png";
+import Card1 from "../../public/img/invest/pic.png";
+import Card2 from "../../public/img/invest/pic-1.png";
+import Card3 from "../../public/img/invest/pic-2.png";
+import Card4 from "../../public/img/invest/pic-3.png";
+import Card5 from "../../public/img/invest/pic-4.png";
 import Card11 from "../../public/img/loans/cards-2/pic.png";
 import Card22 from "../../public/img/loans/cards-2/pic-1.png";
 import Card33 from "../../public/img/loans/cards-2/pic-2.png";
@@ -22,6 +22,7 @@ import Card55 from "../../public/img/loans/cards-2/pic-4.png";
 import {InvestInSection} from "@shared/sections/InvestInSection";
 import {InvestCalculatorSection} from "@features/home/components/InvestCalculatorSection";
 import {RegisterSection} from "@shared/sections/RegisterSection";
+import CalculatorSection from "@features/home/components/CalculatorSection";
 
 export async function generateMetadata(): Promise<Metadata> {
     return buildMetadata({path: "/invest", title: "Инвестиции — Финин"});
@@ -33,12 +34,9 @@ export default function InvestPage() {
         <Container>
             <LoansHeroSection/>
 
-            <RegisterSection text={
-                <span>Простая схема: <br className="max-md:hidden"/>от регистрации <br className="max-md:hidden"/>до дохода <span
-                    className="text-[#9499A3]">за несколько шагов</span></span>
-            }></RegisterSection>
+          
             <CardScrollList/>
-            <InvestCalculatorSection></InvestCalculatorSection>
+            <CalculatorSection></CalculatorSection>
 
             <section className="con-container my-[120px]">
                 <h2 className="text-4xl font-semibold text-center mb-10 text-gray-800">
@@ -115,84 +113,7 @@ export default function InvestPage() {
             </section>
 
 
-            <section className="con-container my-[120px]">
-                <h2 className="text-4xl font-semibold text-center mb-10 text-gray-800">Доверие и безопасность</h2>
-
-                <div className="flex flex-col gap-5">
-
-                    <div className="flex flex-row gap-5">
-
-                        <div
-                            className="rounded-[20px] flex-[40%]  relative bg-gray-100 pt-[50px] px-10 pb-6 w-full flex flex-col shadow-sm hover:shadow-md transition">
-                            <div className="flex flex-col h-full gap-[28px]">
-                                <Image className="object-cover w-full" src={Card11}
-                                       alt="phone"></Image>
-                                <div className="flex flex-col gap-5 mt-auto">
-
-                                    <p className="text-[28px] font-bold text-gray-400">Лицензия ЦБ РФ</p>
-                                    <p className="text-[18px] text-gray-300">Официальный оператор инвестиционных платформ</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div
-                            className="rounded-[20px] flex-[60%]  relative bg-gray-100 pt-[50px] px-10 pb-6 w-full flex flex-col shadow-sm hover:shadow-md transition">
-                            <div className="flex flex-col h-full gap-[28px]">
-                                <Image className="object-cover w-full" src={Card22}
-                                       alt="phone"></Image>
-                                <div className="flex flex-col mt-auto gap-5">
-
-                                    <p className="text-[28px] font-bold text-gray-400">Лицензия ЦБ РФ</p>
-                                    <p className="text-[18px] text-gray-300">Официальный оператор инвестиционных платформ</p>
-                                </div>
-                            </div>
-                        </div>
-
-
-                    </div>
-
-                    <div className="flex flex-row gap-5">
-
-                        <div
-                            className="rounded-[20px]  relative bg-gray-100 pt-[50px] px-10 pb-6 w-full flex flex-col shadow-sm hover:shadow-md transition">
-                            <div className="flex flex-col h-full gap-[28px]">
-                                <Image className="object-cover w-full" src={Card33}
-                                       alt="phone"></Image>
-                                <div className="flex flex-col mt-auto gap-5">
-
-                                    <p className="text-[28px] font-bold text-gray-400">В реестре Роскомнадзора</p>
-                                    <p className="text-[18px] text-gray-300">Полная защита персональных данных</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            className="rounded-[20px]  relative bg-gray-100 pt-[50px] px-10 pb-6 w-full flex flex-col shadow-sm hover:shadow-md transition">
-                            <div className="flex flex-col h-full gap-[28px]">
-                                <Image className="object-cover w-full" src={Card44}
-                                       alt="phone"></Image>
-                                <div className="flex flex-col mt-auto gap-5">
-
-                                    <p className="text-[28px] font-bold text-gray-400">Резидент «Сколково»</p>
-                                    <p className="text-[18px] text-gray-300">Признаны инновационным финтех-проектом</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div
-                            className="rounded-[20px]  relative bg-gray-100 pt-[50px] px-10 pb-6 w-full flex flex-col shadow-sm hover:shadow-md transition">
-                            <div className="flex flex-col h-full gap-[28px]">
-                                <Image className="object-cover w-full" src={Card55}
-                                       alt="phone"></Image>
-                                <div className="flex flex-col mt-auto gap-5">
-
-                                    <p className="text-[28px] font-bold text-gray-400">Топ-10 по версии RA Expert и SmartRanking</p>
-                                    <p className="text-[18px] text-gray-300">Лидер рынка краудлендинга</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            
             <InvestInSection></InvestInSection>
             <MarqueeBlocks/>
             <PartnersSection/>
