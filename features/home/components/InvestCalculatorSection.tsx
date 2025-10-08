@@ -7,7 +7,7 @@ import {Button} from '@shared/ui/Button'
 import {Muted} from '@shared/ui/Typography'
 import {Input} from '@shared/ui/Input' // Re-added the import for your custom component
 import Dates from "public/img/invest-in-finin/dates.png"
-import Pic1 from "public/img/modules/pic-4.png"
+import Pic1 from "public/img/modules/4.png"
 
 // --- Helper functions ---
 function createLinePath(points: { x: number; y: number }[]) {
@@ -172,7 +172,7 @@ export function InvestCalculatorSection() {
 
     return (
         <section className="con-container py-12">
-            <div className="flex items-start gap-5 ">
+            <div className="flex items-start gap-[20px] mt-[80px]  ">
                 <div>
                     <div className="flex flex-col gap-5 max-lg:flex-col max-lg:items-center mb-[80px]">
 
